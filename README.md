@@ -43,7 +43,7 @@ Diagrama de Classes: As classes foram criadas conforme o diagrama de classes a s
 
 2. [x] Acessar o MinIO
 
-   * http://localhost:9001
+   * http://localhost:9000
    * **Usuário**: admin
    * **Senha**: admin123
 
