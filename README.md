@@ -1,10 +1,10 @@
-# **Projeto Spring Boot com PostgreSQL, MinIO e Docker Compose**
+# **Projeto Spring Boot com PostgreSQL, MinIO e Docker Compose** 
+# **Candidato Douglas Carrijo Pena**
 
 ## **Tecnologias Utilizadas**
 * Spring Boot: Framework Java para construção da aplicação backend.
 * PostgreSQL: Banco de dados relacional.
-* PgAdmin: Interface gráfica para gerenciamento do PostgreSQL.
-* Docker Compose: Ferramenta para definir e rodar aplicativos multi-containers (PostgreSQL, PgAdmin e MinIO).
+* Docker Compose: Ferramenta para definir e rodar aplicativos multi-containers (PostgreSQL e MinIO).
 * JWT: Autenticação baseada em JSON Web Tokens.
 * MinIO: Serviço de armazenamento de objetos para upload de imagens.
 
