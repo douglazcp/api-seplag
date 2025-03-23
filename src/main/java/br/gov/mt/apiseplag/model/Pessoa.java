@@ -38,7 +38,7 @@ public class Pessoa {
     @OneToOne(mappedBy = "pessoa")
     private PessoaEndereco pessoaEndereco;
 
-    @OneToOne(mappedBy = "pessoa")
+    @OneToOne(mappedBy = "pessoa", fetch = FetchType.LAZY)
     private FotoPessoa fotoPessoa;
 
 }

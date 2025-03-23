@@ -20,6 +20,9 @@ public class ServidorEfetivoService {
     @Autowired
     private ServidorEfetivoRepository servidorEfetivoRepository;
 
+    @Autowired
+    private FotoPessoaService fotoPessoaService;
+
     public List<ServidorEfetivo> listarTodos(PageRequest pageRequest) {
         Page<ServidorEfetivo> list = servidorEfetivoRepository.findAll(pageRequest);
         return list.stream().toList();
@@ -30,8 +33,15 @@ public class ServidorEfetivoService {
         return servidorEfetivoRepository.findById(id);
     }
 
-    public ServidorEfetivo salvar(ServidorEfetivo servidorEfetivo) {
-        return servidorEfetivoRepository.save(servidorEfetivo);
+    public ServidorEfetivo salvar(ServidorEfetivo servidorEfetivo) throws Exception {
+        try {
+            if(servidorEfetivo.getPessoa().getFotoPessoa() != null) {
+                fotoPessoaService.salvar(servidorEfetivo.getPessoa().getFotoPessoa());
+            }
+            return servidorEfetivoRepository.save(servidorEfetivo);
+        }catch (Exception e) {
+            throw new Exception(e);
+        }
     }
 
     public void deletar(Long id) {

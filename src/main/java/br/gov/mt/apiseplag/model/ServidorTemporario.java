@@ -20,7 +20,7 @@ public class ServidorTemporario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     private Pessoa pessoa;
 
     @Column(name = "st_data_admissao")
