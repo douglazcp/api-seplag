@@ -38,7 +38,16 @@ public class FotoController {
         if (!errors.isEmpty()) {
             return ResponseEntity.status(500).body(errors);
         }
-
+        /*
+        teste upload retorno:
+            5df35221-e097-4442-8060-5b32f06818d4-Edital Seletivo SEPLAG.pdf
+         */
         return ResponseEntity.ok(uploadedFiles);
+    }
+
+    @GetMapping("/download/{fileName}")
+    public ResponseEntity<String> getUrlTemporaria(@PathVariable String fileName) {
+        String url = minioService.gerarUrlTemporaria(fileName);
+        return ResponseEntity.ok(url);
     }
 }
