@@ -1,5 +1,6 @@
 package br.gov.mt.apiseplag.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,7 +36,8 @@ public class Pessoa {
     @Column(name = "pes_pai")
     private String pai;
 
-    @OneToOne(mappedBy = "pessoa")
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.MERGE)
+    @JsonIgnore
     private PessoaEndereco pessoaEndereco;
 
     @OneToOne(mappedBy = "pessoa", fetch = FetchType.LAZY)

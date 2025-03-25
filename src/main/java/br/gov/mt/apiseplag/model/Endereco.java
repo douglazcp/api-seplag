@@ -1,5 +1,6 @@
 package br.gov.mt.apiseplag.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,9 +35,11 @@ public class Endereco {
     private Cidade cidade;
 
     @OneToOne(mappedBy = "endereco")
+    @JsonIgnore
     private PessoaEndereco pessoaEndereco;
 
     @OneToOne(mappedBy = "endereco")
+    @JsonIgnore
     private UnidadeEndereco unidadeEndereco;
 
 }
