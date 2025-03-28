@@ -2,7 +2,7 @@ package br.gov.mt.apiseplag.controller;
 
 import br.gov.mt.apiseplag.model.FotoPessoa;
 import br.gov.mt.apiseplag.model.ServidorEfetivo;
-import br.gov.mt.apiseplag.model.dto.ServidorEfetivoDto;
+import br.gov.mt.apiseplag.dto.ServidorEfetivoDto;
 import br.gov.mt.apiseplag.service.FotoPessoaService;
 import br.gov.mt.apiseplag.service.MinioService;
 import br.gov.mt.apiseplag.service.PessoaService;

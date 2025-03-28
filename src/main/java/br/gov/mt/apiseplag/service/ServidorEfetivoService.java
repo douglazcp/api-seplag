@@ -1,8 +1,8 @@
 package br.gov.mt.apiseplag.service;
 
 import br.gov.mt.apiseplag.model.ServidorEfetivo;
-import br.gov.mt.apiseplag.model.dto.ServidorEfetivoDto;
-import br.gov.mt.apiseplag.model.dto.UnidadeDto;
+import br.gov.mt.apiseplag.dto.ServidorEfetivoDto;
+import br.gov.mt.apiseplag.dto.UnidadeDto;
 import br.gov.mt.apiseplag.repository.ServidorEfetivoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

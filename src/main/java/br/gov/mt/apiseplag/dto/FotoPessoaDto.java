@@ -1,4 +1,4 @@
-package br.gov.mt.apiseplag.model.dto;
+package br.gov.mt.apiseplag.dto;
 
 import br.gov.mt.apiseplag.model.FotoPessoa;
 import jakarta.persistence.Column;
