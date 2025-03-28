@@ -46,7 +46,7 @@ cd api-seplag
 * #### Criar um bucket para armazenar os objetos S3.
 * `bucket-seplag-projeto-pratico`
 
-### 🔐 Autenticação com JWT
+### Autenticação com JWT
 
 - A autenticação é feita via JWT (token expira em 5 minutos)
 - Para gerar o token, use o endpoint:
