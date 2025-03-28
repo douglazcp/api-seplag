@@ -1,31 +1,17 @@
-# **Projeto Spring Boot com PostgreSQL, MinIO e Docker Compose** 
-# **Candidato Douglas Carrijo Pena**
+# **Projeto Spring Boot com PostgreSQL, MinIO, JWT e Docker Compose** 
+## **Candidato Douglas Carrijo Pena**
 
-## **Tecnologias Utilizadas**
+### **Tecnologias Utilizadas**
 * Spring Boot: Framework Java para construção da aplicação backend.
 * PostgreSQL: Banco de dados relacional.
 * Docker Compose: Ferramenta para definir e rodar aplicativos multi-containers (PostgreSQL e MinIO).
 * JWT: Autenticação baseada em JSON Web Tokens.
 * MinIO: Serviço de armazenamento de objetos para upload de imagens.
 
-## **Estrutura do Projeto**
-
-### Configuração do Spring Boot Initializr: 
-O projeto foi inicializado através do Spring Boot Initializr com as seguintes dependências:
-
-* Spring Web
-* Spring Data JPA
-* Spring Security
-* PostgreSQL Driver
-* Lombok
-* Spring Boot DevTools
-* JWT (dependência para autenticação)
- 
-### Configuração do Docker Compose 
-O Docker Compose foi configurado para rodar três containers:
+### Configuração do projeto
+O Docker Compose foi configurado para rodar dois containers:
 
 * PostgreSQL: Banco de dados relacional.
-* PgAdmin: Interface para facilitar o gerenciamento do PostgreSQL.
 * MinIO: Serviço de armazenamento de objetos para upload de imagens.
 
 O arquivo docker-compose.yml configura todos os containers necessários, incluindo as credenciais de acesso ao MinIO.
@@ -34,18 +20,71 @@ Diagrama de Classes: As classes foram criadas conforme o diagrama de classes a s
 
 ![img.png](img.png)
 
-## Execução
+## Como executar o projeto
 
-1. [x] `docker run -d --name postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=seplag -p 5432:5432 postgres:latest`
-   * ✅ Iniciará um PostgreSQL na porta 5432 com banco e usuário configurados.
+### Clonar o repositório
+```bash
+git clone https://github.com/douglazcp/api-seplag.git
+cd api-seplag
+```
 
-2. [x] `docker run -p 9000:9000 -p 9001:9001 --name minio -e "MINIO_ROOT_USER=admin" -e "MINIO_ROOT_PASSWORD=admin123" minio/minio server /data --console-address ":9001"`
-   * ✅ Iniciará um MinIO na porta 9000 e o painel de administração na 9001.
+### Iniciar o docker
+#### Via  o docker-compose.yml
+`docker-compose up -d`
+#### Via terminal
+* #### Iniciar um PostgreSQL na porta 5432 com banco e usuário configurados. 
+  * `docker run -d --name postgres -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=seplag -p 5432:5432 postgres:latest`
 
-3. [x] Acessar o MinIO
+* #### Iniciar um MinIO na porta 9000 e o painel de administração na 9001.
+    * `docker run -p 9000:9000 -p 9001:9001 --name minio -e "MINIO_ROOT_USER=admin" -e "MINIO_ROOT_PASSWORD=admin123" minio/minio server /data --console-address ":9001"`
 
+### Acessar o MinIO
    * http://localhost:9000
-   * **Usuário**: admin
-   * **Senha**: admin123
+   * **Usuário**: ``admin``
+   * **Senha**: ``admin123``
 
-4. [x] Crie um bucket para armazenar os objetos S3.
+* #### Criar um bucket para armazenar os objetos S3.
+* `bucket-seplag-projeto-pratico`
+
+### 🔐 Autenticação com JWT
+
+- A autenticação é feita via JWT (token expira em 5 minutos)
+- Para gerar o token, use o endpoint:
+
+### 🔹 `POST /auth/login`
+
+```json
+{
+   "username":"admin",
+   "password":"password"
+}
+```
+
+### Estrutura do projeto
+```
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── br
+│   │   │       └── gov
+│   │   │           └── mt
+│   │   │               └── apiseplag
+│   │   │                   ├── controller
+│   │   │                   ├── dto
+│   │   │                   ├── model
+│   │   │                   ├── repository
+│   │   │                   ├── security
+│   │   │                   ├── service
+│   │   │                   └── utils
+│   │   └── resources
+│   │       ├── static
+│   │       └── templates
+│   └── test
+│       └── java
+│           └── br
+│               └── gov
+│                   └── mt
+│                       └── apiseplag
+└── target
+...
+```
