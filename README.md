@@ -2,10 +2,20 @@
 ## **Candidato Douglas Carrijo Pena**
 
 ### **Tecnologias Utilizadas**
-* Spring Boot: Framework Java para construção da aplicação backend.
-* PostgreSQL: Banco de dados relacional.
-* Docker Compose: Ferramenta para definir e rodar aplicativos multi-containers (PostgreSQL e MinIO).
 * JWT: Autenticação baseada em JSON Web Tokens.
+   * `A. Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao
+endpoint a partir de domínios diversos do qual estará hospedado o serviço;`
+   * `B. A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de
+renovação do período;`
+* Spring Boot: Framework Java para construção da aplicação backend.
+   * `C. Implementar pelo menos os verbos post, put, get;` 
+   * `D. Conter recursos de paginação em todas as consultas;`
+* PostgreSQL: Banco de dados relacional.
+   * `E. Os dados produzidos deverão ser armazenados no servidor de banco de dados previamente
+     criado em container;`
+* Docker Compose: Ferramenta para definir e rodar aplicativos multi-containers (PostgreSQL e MinIO).
+   * `F. Orquestrar a solução final utilizando Docker Compose de modo que inclua todos os contêineres
+     utilizados.`
 * MinIO: Serviço de armazenamento de objetos para upload de imagens.
 
 ### Configuração do projeto
@@ -48,9 +58,12 @@ cd api-seplag
 
 ### Autenticação com JWT
 
-- A autenticação é feita via JWT (token expira em 5 minutos)
+- A autenticação é feita via JWT.
+  - `A solução de autenticação deverá expirar a cada 5 minutos e oferecer a possibilidade de
+    renovação do período.`
 - Para gerar o token, use o endpoint:
-
+   - ` Implementar mecanismo de autorização e autenticação, bem como não permitir acesso ao
+endpoint a partir de domínios diversos do qual estará hospedado o serviço;`
 ### 🔹 `POST /auth/login`
 
 ```json
